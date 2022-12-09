@@ -1,0 +1,55 @@
+﻿<Window x:Class="ProJectPASS.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProJectPASS"
+        xmlns:interop="clr-namespace:Walterlv.Demo.Interop"
+        mc:Ignorable="d" Title="MainWindow" Height="500" Width="700" AllowsTransparency="True" WindowStyle="None"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        Background="Black" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Opacity="1">
+        <Canvas Opacity="1" Grid.ColumnSpan="2">
+            <MediaElement Source="background.wmv" Width="890" HorizontalAlignment="Left" VerticalAlignment="Center"></MediaElement>
+            <Canvas.Effect>
+                <BlurEffect Radius="10" KernelType="Gaussian"></BlurEffect>
+            </Canvas.Effect>
+        </Canvas>
+
+        <Button x:Name="ExitButton" BorderBrush="Transparent" Foreground="Transparent" BorderThickness="0" Margin="350,0,310,460" Height="40" Width="40" VerticalAlignment="Bottom" Click="ExitApp">
+            <Button.Background>
+                <ImageBrush ImageSource="/ExitButton.png"/>
+            </Button.Background>
+        </Button>
+
+        <Button x:Name="MinimizeButton" Margin="310,0,350,460" BorderBrush="Transparent" Foreground="Transparent" BorderThickness="0" Width="40" Height="40" Click="MInimButtonClick" >
+            <Button.Background>
+                <ImageBrush ImageSource="/HideButton.png"/>
+            </Button.Background>
+
+        </Button>
+
+
+        <TextBox x:Name="PasswordField" Background="#FF18F36C" Text="" Foreground="White" Height="30" FontSize="20" Margin="90,400,120,70"></TextBox>
+        <StackPanel Margin="585,400,30,70">
+            <Button x:Name="CopyButton" Content="Скопировать" Height="30" Click="CopyButtonClick">
+            </Button>
+        </StackPanel>
+        <Button Margin="288,326,288,142" Content="Сгенерировать" Click="PassGen"></Button>
+        <Label Content="Выберите длинну пароля" Margin="0,216,0,250" Foreground="White" HorizontalAlignment="Center"></Label>
+        <TextBox x:Name="LengBox" Margin="430,248,0,0" Text="6" Background="Transparent" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Width="24" Height="24" FontSize="16" TextChanged="LBV_Leng" TextAlignment="Center"></TextBox>
+        <Slider x:Name="LengSlider" Margin="275,250,275,231" Minimum="6" Maximum="48" Value="6" FontSize="16" ValueChanged="SVC_Lenght" TickFrequency="1"></Slider>
+        <ComboBox x:Name="LangTypeBox" Margin="275,173,275,297" Background="Black" Foreground="Black" FontSize="16" BorderBrush="Black" SelectionChanged="SelectorTypeLeng">
+            <ComboBoxItem IsSelected="True">
+                <TextBlock Background="Transparent" Text="Russian"></TextBlock>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <TextBlock Background="Transparent" Text="English"></TextBlock>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <TextBlock Background="Transparent" Text="Multipl"></TextBlock>
+            </ComboBoxItem>
+        </ComboBox>
+        <Label Margin="249,139,249,327" Foreground="White">Выберете язык для вашего пароля</Label>
+    </Grid>
+</Window>
